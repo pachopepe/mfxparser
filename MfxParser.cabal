@@ -1,0 +1,48 @@
+name:              mfxparser
+version:           0.0.1
+license:           MIT
+license-file:      LICENSE
+author:            Francisco Cháves
+maintainer:        Francisco Cháves
+synopsis:          MixFix parser using precedence climbing.
+description:       An implementation of a mixfix parser using a precedence
+                   climbing parsing with monadic parsing.
+                   We also included Calculational style expressions.
+                   This is part of a personal project: a calculational style prover assistant
+category:          Parsing, Mixfix, Precedence climbing.
+stability:         Experimental
+cabal-version:     >= 1.8
+build-type:        Simple
+
+source-repository head
+  type:     git
+  location: https://github.com/pachopepe/Mfxparse.git
+
+library
+  build-depends:      base >= 4 && < 5,
+                      mtl >= 2.1 && < 3,
+                      parsec >= 3.1.9 && < 4,
+                      syb >= 0 && < 1,
+                      containers >= 0.5 && < 0.6,
+                      template-haskell >= 2 && < 3,
+                      ghc-prim >= 0.3 && < 0.4, 
+                      QuickCheck >= 2.0 && < 3                     
+  exposed-modules:    MixFix.Parser
+  other-modules:      MixFix.Dic
+                      MixFix.Expr
+                      MixFix.Lexer
+  hs-source-dirs:     src
+  extensions:         DoAndIfThenElse
+
+test-suite tests
+  hs-source-dirs: tests
+  main-is: tests.hs
+  Type: exitcode-stdio-1.0
+  build-depends:       base >= 4 && < 5,
+                       mfxparser == 0.*,
+                       QuickCheck >= 2 && < 3,
+                       test-framework >= 0 && < 1,
+                       test-framework-quickcheck2 >= 0 && < 1, 
+                       containers >= 0 && < 1,
+                       multiset >= 0.2.2 && < 1
+
