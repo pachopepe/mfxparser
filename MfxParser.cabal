@@ -1,6 +1,6 @@
 name:              mfxparser
 version:           0.0.1
-license:           MIT
+license:           BSD
 license-file:      LICENSE
 author:            Francisco Cháves
 maintainer:        Francisco Cháves
